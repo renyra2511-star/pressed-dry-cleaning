@@ -2431,8 +2431,8 @@ function nextTicket(shopId){
   if(DB.orderSeries && DB.orderSeries.prefix){
     const n = DB.orderSeries.next||1;
     DB.orderSeries.next = n+1;
-    return DB.orderSeries.prefix+String(n).padStart(5,'0');
-  }
+    return DB.orderSeries.prefix+String(n).padStart(6,'0');
+  
   const shop = DB.shops.find(s=>s.id===shopId); const n=(DB.counters[shopId]||0)+1; DB.counters[shopId]=n; return shop.code+'-'+String(n).padStart(4,'0');
 }
 function nextInvoiceNumber(){ const n = DB.nextInvoiceSeq||1; DB.nextInvoiceSeq = n+1; return 'INV-'+String(n).padStart(5,'0'); }
